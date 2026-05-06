@@ -89,13 +89,13 @@
 
     .toggle-group{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--mist);border-radius:var(--radius);border:2px solid var(--mist-dark);cursor:pointer;transition:border-color 0.2s;}
     .toggle-group:hover{border-color:var(--red);}
-    .toggle-switch{position:relative;width:48px;height:26px;flex-shrink:0;}
+    .toggle-switch{position:relative;width:48px;min-width:48px;height:26px;flex-shrink:0;align-self:center;}
     .toggle-switch input{display:none;}
     .toggle-track{display:block;width:100%;height:100%;background:var(--mist-dark);border-radius:13px;transition:background 0.25s;cursor:pointer;}
     .toggle-track::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;background:var(--white);border-radius:50%;transition:transform 0.25s;box-shadow:0 1px 4px rgba(0,0,0,0.2);}
     .toggle-switch input:checked+.toggle-track{background:var(--red);}
     .toggle-switch input:checked+.toggle-track::after{transform:translateX(22px);}
-    .toggle-label-text{font-size:0.92rem;color:var(--text);}
+    .toggle-label-text{font-size:0.92rem;color:var(--text);min-width:0;flex:1 1 0;}
     .toggle-label-text strong{display:block;color:var(--navy);font-size:0.88rem;font-weight:600;}
 
     .btn-calculate{width:100%;padding:16px;background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);color:var(--white);border:none;border-radius:var(--radius);font-size:1.05rem;font-weight:700;font-family:var(--font-body);cursor:pointer;letter-spacing:0.02em;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 12px rgba(200,16,46,0.3);margin-top:8px;}
@@ -249,12 +249,16 @@
       .results-grid{grid-template-columns:1fr 1fr;}
       .scenarios-table{font-size:0.82rem;}
       .scenarios-table th,.scenarios-table td{padding:8px 10px;}
+      .toggle-group{align-items:flex-start;gap:12px;padding:12px 14px;}
+      .toggle-switch{margin-top:2px;}
     }
     @media(max-width:480px){
       .hero{padding:36px 16px 40px;}
       .footer-grid{grid-template-columns:1fr;}
       .results-grid{grid-template-columns:1fr;}
       .scenario-grid{grid-template-columns:1fr;}
+      .toggle-group{gap:10px;padding:11px 12px;}
+      .toggle-label-text{font-size:0.88rem;}
     }
     .footer-email a[href^="mailto:"] { text-decoration: underline; opacity: 0.9; }
     .footer-email a[href^="mailto:"]:hover { opacity: 1; }
