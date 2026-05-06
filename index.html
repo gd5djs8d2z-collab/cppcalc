@@ -256,6 +256,8 @@
       .results-grid{grid-template-columns:1fr;}
       .scenario-grid{grid-template-columns:1fr;}
     }
+    .footer-email a[href^="mailto:"] { text-decoration: underline; opacity: 0.9; }
+    .footer-email a[href^="mailto:"]:hover { opacity: 1; }
   </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165" crossorigin="anonymous"></script>
 </head>
@@ -937,13 +939,23 @@ function calculateCPP() {
     <div class="breakdown-row"><span class="br-label">Less: Basic Exemption</span><span class="br-val">− ${fmt(C.BASIC_EXEMPTION)}</span></div>
     <div class="breakdown-row"><span class="br-label">CPP1 Pensionable Earnings</span><span class="br-val">${fmt(cpp1Pens)}</span></div>
     <div class="breakdown-row"><span class="br-label">CPP1 Rate</span><span class="br-val">${isSE ? fmtPct(C.SELF_EMPLOYED_RATE) + ' (self-employed)' : fmtPct(C.EMPLOYEE_RATE) + ' (employee)'}</span></div>
-    <div class="breakdown-row"><span class="br-label">CPP1 ${isSE ? 'Self-Employed' : 'Employee'} Contribution</span><span class="br-val">${fmt(isSE ? cpp1SE : cpp1Emp)}</span></div>
+    ${isSE ? `
+    <div class="breakdown-row"><span class="br-label">CPP1 Employee-Equivalent Portion</span><span class="br-val">${fmt(+(cpp1SE / 2).toFixed(2))}</span></div>
+    <div class="breakdown-row"><span class="br-label">CPP1 Employer-Equivalent Portion</span><span class="br-val">${fmt(+(cpp1SE - +(cpp1SE / 2).toFixed(2)).toFixed(2))}</span></div>
+    ` : `
+    <div class="breakdown-row"><span class="br-label">CPP1 Employee Contribution</span><span class="br-val">${fmt(cpp1Emp)}</span></div>
+    `}
     ${hasCPP2 ? `
     <div class="breakdown-row"><span class="br-label">CPP2 Band</span><span class="br-val">${fmt(cpp2Band)}</span></div>
     <div class="breakdown-row"><span class="br-label">CPP2 Rate</span><span class="br-val">${isSE ? fmtPct(C.CPP2_SELF_EMPLOYED_RATE) + ' (self-employed)' : fmtPct(C.CPP2_EMPLOYEE_RATE) + ' (employee)'}</span></div>
-    <div class="breakdown-row"><span class="br-label">CPP2 ${isSE ? 'Self-Employed' : 'Employee'} Contribution</span><span class="br-val">${fmt(isSE ? cpp2SE : cpp2Emp)}</span></div>
+    ${isSE ? `
+    <div class="breakdown-row"><span class="br-label">CPP2 Employee-Equivalent Portion</span><span class="br-val">${fmt(+(cpp2SE / 2).toFixed(2))}</span></div>
+    <div class="breakdown-row"><span class="br-label">CPP2 Employer-Equivalent Portion</span><span class="br-val">${fmt(+(cpp2SE - +(cpp2SE / 2).toFixed(2)).toFixed(2))}</span></div>
+    ` : `
+    <div class="breakdown-row"><span class="br-label">CPP2 Employee Contribution</span><span class="br-val">${fmt(cpp2Emp)}</span></div>
+    `}
     ` : ''}
-    <div class="breakdown-row" style="font-weight:600;"><span class="br-label">Total ${isSE ? 'Self-Employed' : 'Employee'} Contribution</span><span class="br-val">${fmt(isSE ? seTotal : empTotal)}</span></div>
+    <div class="breakdown-row" style="font-weight:600;"><span class="br-label">Total ${isSE ? 'Self-Employed CPP' : 'Employee'} Contribution</span><span class="br-val">${fmt(isSE ? seTotal : empTotal)}</span></div>
     ${!isSE ? `<div class="breakdown-row"><span class="br-label">Employer Contribution</span><span class="br-val">${fmt(erTotal)}</span></div>` : ''}
   `;
 
