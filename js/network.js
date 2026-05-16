@@ -26,7 +26,7 @@
       },
       {
         live: true,
-        name: "EI Calculator Canada",
+        name: "EI Calc",
         url: "https://eicalc.ca",
         description:
           "Calculate your Employment Insurance (EI) premiums based on insurable earnings and the current MIE ceiling.",
