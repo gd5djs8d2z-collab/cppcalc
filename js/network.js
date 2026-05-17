@@ -16,14 +16,7 @@
       description: "Canadian payroll, tax, and contribution calculators",
     },
     tools: [
-      {
-        live: true,
-        name: "Ontario Take Home Calc",
-        url: "https://ontariotakehomecalc.ca",
-        description:
-          "Estimate your Ontario net pay after federal and provincial taxes, CPP, and EI deductions.",
-        tags: ["payroll", "ontario", "tax"],
-      },
+
       {
         live: true,
         name: "EI Calc",
