@@ -86,8 +86,8 @@
           <p class="footer-email">Questions? <a href="mailto:partnerships@calc-hq.ca">partnerships@calc-hq.ca</a></p>
         </div>
         <div class="footer-col">
-          <h4>Pages</h4>
-          <a href="index.html">CPP Calculator</a>
+          <h4>PAGES</h4>
+          <a href="index.html">Home</a>
           <a href="faq.html">FAQ</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
@@ -96,11 +96,11 @@
           <a href="disclaimer.html">Disclaimer</a>
         </div>
         <div class="footer-col">
-          <h4>Related Calculators</h4>
+          <h4>RELATED TOOLS</h4>
           ${toolLinks}
         </div>
         <div class="footer-col">
-          <h4>More Tools</h4>
+          <h4>MORE TOOLS</h4>
           <a href="${NETWORK.hub.url}" class="more-tools-link" target="_blank" rel="noopener noreferrer">
             <span class="more-tools-title">${NETWORK.hub.name}</span>
             <span class="subtext">${NETWORK.hub.description}</span>
