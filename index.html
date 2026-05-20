@@ -192,7 +192,7 @@
     .authority-card p{font-size:0.88rem;color:var(--text-mid);line-height:1.6;margin:0;}
 
     /* ── Scenarios Table ── */
-    #scenarios-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;}
+    .scenarios-table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
     .scenarios-table{width:100%;min-width:480px;border-collapse:collapse;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin:20px 0;font-size:0.89rem;}
     .scenarios-table thead{background:var(--navy);color:var(--white);}
     .scenarios-table th{padding:11px 14px;text-align:left;font-size:0.81rem;font-weight:600;letter-spacing:0.04em;}
@@ -246,8 +246,7 @@
     @media(max-width:768px){
       .calc-body{padding:20px 18px;}
       .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
-      .header-inner{height:auto;padding:8px 16px;flex-wrap:wrap;gap:6px;}
-      .site-nav{display:flex;flex-wrap:wrap;gap:4px;}
+      .header-inner{height:60px;padding:0 16px;}
       .site-nav a{font-size:0.78rem;padding:4px 8px;}
       .results-grid{grid-template-columns:1fr 1fr;}
       .scenarios-table{font-size:0.82rem;}
@@ -256,7 +255,8 @@
       .toggle-switch{margin-top:0;}
     }
     @media(max-width:480px){
-      .hero{padding:90px 16px 40px;}
+      .hero{padding:52px 16px 40px;}
+      .calc-card{margin:24px auto 28px;}
       .footer-grid{grid-template-columns:1fr;}
       .results-grid{grid-template-columns:1fr;}
       .scenario-grid{grid-template-columns:1fr;}
@@ -829,13 +829,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 :                  `<strong>${f(inc)}</strong>`;
       return `<tr><td>${lbl}</td><td>${f(d.empTotal)}</td><td>${f(d.erTotal)}</td><td>${f(d.bothTotal)}</td><td>${f(s.total)}</td></tr>`;
     }).join('');
-    tWrap.innerHTML = `
-      <table class="scenarios-table">
-        <thead><tr>
-          <th>Annual Income</th><th>Employee</th><th>Employer</th><th>Combined</th><th>Self-Employed</th>
-        </tr></thead>
-        <tbody>${rows}</tbody>
-      </table>`;
+    tWrap.innerHTML = `<div class="scenarios-table-wrap"><table class="scenarios-table"><thead><tr><th>Annual Income</th><th>Employee</th><th>Employer</th><th>Combined</th><th>Self-Employed</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
   const scOutro = document.getElementById('scenarios-outro');
   if (scOutro) scOutro.textContent =
