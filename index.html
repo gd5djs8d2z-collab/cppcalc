@@ -43,7 +43,7 @@
     body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--text);background:var(--off-white);}
 
     /* ── Header ── */
-    .site-header{background:var(--navy);border-bottom:3px solid var(--red);position:sticky;top:0;z-index:100;box-shadow:var(--shadow-md);}
+    .site-header{background:var(--navy);border-bottom:3px solid #00667a;position:sticky;top:0;z-index:100;box-shadow:var(--shadow-md);}
     .header-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px;}
     .site-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
     .logo-maple{font-size:22px;line-height:1;}
@@ -193,7 +193,7 @@
 
     /* ── Scenarios Table ── */
     #scenarios-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-    .scenarios-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);margin:20px 0;font-size:0.89rem;}
+    .scenarios-table{width:100%;min-width:480px;border-collapse:collapse;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin:20px 0;font-size:0.89rem;}
     .scenarios-table thead{background:var(--navy);color:var(--white);}
     .scenarios-table th{padding:11px 14px;text-align:left;font-size:0.81rem;font-weight:600;letter-spacing:0.04em;}
     .scenarios-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-mid);}
@@ -256,7 +256,7 @@
       .toggle-switch{margin-top:0;}
     }
     @media(max-width:480px){
-      .hero{padding:36px 16px 40px;}
+      .hero{padding:90px 16px 40px;}
       .footer-grid{grid-template-columns:1fr;}
       .results-grid{grid-template-columns:1fr;}
       .scenario-grid{grid-template-columns:1fr;}
