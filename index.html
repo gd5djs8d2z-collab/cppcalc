@@ -200,6 +200,16 @@
     .scenarios-table tbody tr:last-child td{border-bottom:none;}
     .scenarios-table tbody tr:hover{background:var(--mist);}
     .scenarios-table td strong{color:var(--text);}
+    @media(max-width:480px){
+      .scenarios-table-wrap{overflow-x:visible;}
+      .scenarios-table{min-width:0;display:block;box-shadow:none;margin:12px 0;}
+      .scenarios-table thead{display:none;}
+      .scenarios-table tbody{display:block;}
+      .scenarios-table tr{display:block;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:10px;padding:10px 14px;box-shadow:var(--shadow-sm);}
+      .scenarios-table td{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:1px solid var(--mist-dark);font-size:0.85rem;}
+      .scenarios-table td:last-child{border-bottom:none;}
+      .scenarios-table td::before{content:attr(data-label);font-weight:600;color:var(--navy);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.04em;flex-shrink:0;margin-right:8px;}
+    }
 
     /* ── FAQ ── */
     .faq-list{margin:20px 0;}
@@ -827,7 +837,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const lbl = inc >= C.YAMPE ? `<strong>${f(C.YAMPE)}+</strong> (both tiers maxed)`
                 : inc >= C.YMPE  ? `<strong>${f(inc)}</strong> <em>(CPP2 applies)</em>`
                 :                  `<strong>${f(inc)}</strong>`;
-      return `<tr><td>${lbl}</td><td>${f(d.empTotal)}</td><td>${f(d.erTotal)}</td><td>${f(d.bothTotal)}</td><td>${f(s.total)}</td></tr>`;
+      return `<tr><td data-label="Income">${lbl}</td><td data-label="Employee">${f(d.empTotal)}</td><td data-label="Employer">${f(d.erTotal)}</td><td data-label="Combined">${f(d.bothTotal)}</td><td data-label="Self-Employed">${f(s.total)}</td></tr>`;
     }).join('');
     tWrap.innerHTML = `<div class="scenarios-table-wrap"><table class="scenarios-table"><thead><tr><th>Annual Income</th><th>Employee</th><th>Employer</th><th>Combined</th><th>Self-Employed</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
