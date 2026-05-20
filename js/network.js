@@ -76,7 +76,6 @@
         <div class="footer-col">
           <h4>CPP Calc</h4>
           <p>CPP contribution estimates for employees and the self-employed — based on current CRA rates.</p>
-          <p class="footer-email">Questions? <a href="mailto:partnerships@calc-hq.ca">partnerships@calc-hq.ca</a></p>
         </div>
         <div class="footer-col">
           <h4>PAGES</h4>
